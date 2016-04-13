@@ -62,7 +62,7 @@ public class ForecastFragment extends Fragment implements LoaderManager.LoaderCa
     private ForecastAdapter mForecastAdapter;
     private int mPosition = ListView.INVALID_POSITION;
     private ListView mListView;
-
+    private boolean mUseTodayLayout;
     public ForecastFragment() {
     }
 
@@ -76,6 +76,13 @@ public class ForecastFragment extends Fragment implements LoaderManager.LoaderCa
          * DetailFragmentCallback for when an item has been selected.
          */
         public void onItemSelected(Uri dateUri);
+    }
+
+    public void setmUseTodayLayout(boolean UseTodayLayout) {
+        mUseTodayLayout = UseTodayLayout;
+        if(mForecastAdapter != null){
+            mForecastAdapter.setmUseTodayLayout(mUseTodayLayout);
+        }
     }
 
     @Override
@@ -148,6 +155,8 @@ public class ForecastFragment extends Fragment implements LoaderManager.LoaderCa
         if (savedInstanceState != null && savedInstanceState.containsKey(mpositionBundleKey)) {
             mPosition = savedInstanceState.getInt(mpositionBundleKey);
         }
+
+mForecastAdapter.setmUseTodayLayout(mUseTodayLayout);
         return rootView;
     }
 
