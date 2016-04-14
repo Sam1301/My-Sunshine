@@ -57,7 +57,21 @@ public class DetailActivity extends ActionBarActivity {
             startActivity(new Intent(this, SettingsActivity.class));
             return true;
         }
+        if(id == android.R.id.home){
+            onBackPressed();
+            return true;
+        }
         return super.onOptionsItemSelected(item);
     }
+
+    //want to make the function of up button same as the back button
+    //if user scrolls down the list and selects an item
+    //goes to the details activity(on phone) and taps on the up button
+    //I want the screen showing the same list item previously selected.
+    // also i am considering the difference between the up button and back button
+    //if they both had the same functionality, both of them wouldn't have existed
+    //also, i want to see other google apps or any insanely famous third party apps
+    //and see for my self how they have incorporated this behaviour
+    //just added the functionality of back button to back button
 
 }
